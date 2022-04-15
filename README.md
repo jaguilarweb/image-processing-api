@@ -56,3 +56,14 @@ After to set up the "tsconfig.json", install optionals dependencies:
 
 ``` npm i --save-dev @typescript-eslint/parser ```
 
+To execute, write:
+
+``` npm run build ```
+
+Install Jasmine and create the script in the "package.json"
+
+``` npm i --save-dev jasmine ```
+``` npm i jasmine-spec-reporter --save-dev ```
+``` npm i --save-dev @types/jasmine ```
+
+Create directories to testting and config Jasmine files
