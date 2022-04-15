@@ -6,12 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier-ts": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "prettier-js": "prettier --config .prettierrc 'build/**/*.js' --write"
+    "prettier-js": "prettier --config .prettierrc 'build/**/*.js' --write",
+    "lint-js": "eslint 'build/index.js'",
+    "lint-ts": "eslint . --ext .ts"
   },
   "keywords": [],
   "author": "jaguilarweb",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2"
   }
 }
