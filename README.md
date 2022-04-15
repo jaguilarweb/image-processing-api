@@ -15,8 +15,10 @@ This project needs to have installed NodeJS and npm.
 ``` git init ```
 
 4.- Dependencies
+
 Install Prettier (Formatting) and create ".prettierrc" file
 - ``` npm i --save-dev prettier ```
-
+To test or execute, just exe the script:
+-``` npm run prettier-ts ```
 
 Eslint (catching bugs)
