@@ -36,4 +36,23 @@ Install Eslint (catching bugs), customize the script in the "package.json" and c
 
 To test or execute, just exe the script:
 
-``` npm run lint-ts ``
+``` npm run lint-ts ```
+
+Install Typescript and other dependencies
+
+``` npm i --save-dev typescript ```
+
+``` npm i --save-dev ts-node ```
+
+``` npm i --save-dev @types/node ```
+
+The following command create the "tsconfig.json" file:
+
+``` npx tsc -- init ```
+
+After to set up the "tsconfig.json", install optionals dependencies:
+
+``` npm i --save-dev @typescript-eslint/eslint-plugin ```
+
+``` npm i --save-dev @typescript-eslint/parser ```
+
