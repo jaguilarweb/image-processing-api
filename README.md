@@ -82,3 +82,6 @@ Nodemon going to allow our server to restart anytime a file is saved
 
 ``` npm i --save-dev nodemon ```
 
+Planning
+
+1.- First, standup a server.
