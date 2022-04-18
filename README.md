@@ -70,8 +70,15 @@ Create directories to testting and config Jasmine files
 
 To Endpoint testing install Supertest
 
-``` npm i supertest ```
+``` npm i supertest ```q
 ``` npm i --save-dev @types/supertest ```
 
+Install express package
 
+``` npm i express ```
+``` npm i --save-dev @types/express ```
+
+Nodemon going to allow our server to restart anytime a file is saved
+
+``` npm i --save-dev nodemon ```
 
