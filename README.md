@@ -82,6 +82,11 @@ Nodemon going to allow our server to restart anytime a file is saved
 
 ``` npm i --save-dev nodemon ```
 
+Install sharp third-party library
+
+``` npm install sharp ```
+``` npm i @types/sharp ```
+
 Planning
 
 1.- First, standup a server.
