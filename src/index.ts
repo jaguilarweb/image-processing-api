@@ -6,6 +6,7 @@ import path from 'path';
 const app = express();
 const port = 3000;
 
+
 app.get('/api', (req, res) => {
   res.send('Connected...');
 });
@@ -15,17 +16,28 @@ app.get('/api', (req, res) => {
 
 app.get('/api/images', async (req, res) => {
 
-  try {
-    const image = await sharp(path.join(__dirname, 'assets', 'images', 'fjord.jpg'))
-    .resize(200, 200)
-    .toFile(path.join(__dirname, 'assets', 'thumbs', 'output.jpg'));
-    console.log(image);
+  // To obtain parameters
+  const parameter = req.query;
+  const imageName : string = String(parameter.filename);
+  const imageWidth : number = Number(parameter.width);
+  const imageHeight : number = Number(parameter.height);
+  const imagePath: string = path.join(__dirname, 'assets', 'images', `${imageName}.jpg`)
+  const imageResizedPath : string = path.join(__dirname, 'assets', 'thumbs', `${imageName}_${imageWidth}x${imageHeight}.jpg`) 
 
-  } catch (error) {
-    console.error('An error: ', error)
-  }
+
+
+    try {
+      await sharp(imagePath)
+      .resize(imageWidth, imageHeight)
+      .toFile(imageResizedPath);
+      //To show the image on screen and to close the server connection "send" 
+      res.status(200).sendFile(imageResizedPath);
+
+    } catch (error) {
+      console.error('An error: ', error)
+    }
+
 }); 
-
 
 
 

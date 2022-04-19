@@ -1,7 +1,7 @@
-# Image Porcessing API Project
+# Image Processing API Project
 
 
-# Requirment
+# Requirement
 
 This project needs to have installed NodeJS and npm.
 
