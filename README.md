@@ -94,3 +94,4 @@ Planning
 3.- Refactor to do it more efficient
 4.- How I can validate if the resize image exist before to do it?
 5.- Create routes and middleware
+6.- Create tests
