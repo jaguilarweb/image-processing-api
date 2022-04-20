@@ -1,15 +1,16 @@
 import express from 'express';
-import sharp from 'sharp';
 import path from 'path';
-import logger from '../../utilities/logger';
+import sharp from 'sharp';
+import logger from '../../utilities/middlewares/logger';
+import validateParameter from '../../utilities/middlewares/validateParameter';
 import imageExist from '../../utilities/imageExist';
 
-
 const images = express.Router();
+const middleware = [logger, validateParameter ]
 
 // http://localhost:3000/api/images?filename=argentina&width=200&height=200'
 
-images.get('/', logger, async (req, res) => {
+images.get('/', middleware, async (req: express.Request, res: express.Response) => {
   // To obtain parameters
   const parameter = req.query;
   const imageName : string = String(parameter.filename);
@@ -18,9 +19,6 @@ images.get('/', logger, async (req, res) => {
   const imagePath: string = path.join(__dirname,'..','..','assets', 'images', `${imageName}.jpg`)
   const imageResizedPath : string = path.join(__dirname,'..','..', 'assets', 'thumbs', `${imageName}_${imageWidth}x${imageHeight}.jpg`);
 
-  console.group("Información del Path Image")
-  console.log('Info antes: ' + imageResizedPath);
-
     if(!await imageExist(imageResizedPath)){
       try {
         await sharp(imagePath)
@@ -28,8 +26,8 @@ images.get('/', logger, async (req, res) => {
         .toFile(imageResizedPath);
         //To show the image on screen and to close the server connection "send" 
         console.log('La imagen no existe, fue creada');
+        console.log(' URL creada: ' + imageResizedPath)
         res.status(200).sendFile(imageResizedPath);
-
       } catch (error:unknown) {
         console.error('An error: ', error)
       }
