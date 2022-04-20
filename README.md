@@ -90,3 +90,7 @@ Install sharp third-party library
 Planning
 
 1.- First, standup a server.
+2.- Create simple feature of image processing
+3.- Refactor to do it more efficient
+4.- How I can validate if the resize image exist before to do it?
+5.- Create routes and middleware
