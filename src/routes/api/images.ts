@@ -1,13 +1,15 @@
 import express from 'express';
-import { promises as fsPromises, constants} from 'fs';
 import sharp from 'sharp';
 import path from 'path';
+import logger from '../../utilities/logger';
+import imageExist from '../../utilities/imageExist';
+
 
 const images = express.Router();
 
 // http://localhost:3000/api/images?filename=argentina&width=200&height=200'
 
-images.get('/', async (req, res) => {
+images.get('/', logger, async (req, res) => {
   // To obtain parameters
   const parameter = req.query;
   const imageName : string = String(parameter.filename);
@@ -19,18 +21,7 @@ images.get('/', async (req, res) => {
   console.group("Información del Path Image")
   console.log('Info antes: ' + imageResizedPath);
 
-  const imageExist = async () : Promise<boolean> => {
-    try {
-      await fsPromises.access(imageResizedPath)
-      return true 
-    } catch (error) {
-      console.log(false)
-      return false
-    }
-  }
-
-
-    if(!await imageExist()){
+    if(!await imageExist(imageResizedPath)){
       try {
         await sharp(imagePath)
         .resize(imageWidth, imageHeight)
