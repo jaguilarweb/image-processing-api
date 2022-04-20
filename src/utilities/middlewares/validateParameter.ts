@@ -5,13 +5,12 @@ const validate = (
   res: express.Response,
   next: Function
 ): void => {
-  console.log('Se ejecuta el middleware');
   if (req.query.filename === undefined) {
-    res.send('The filename is missing');
-  } else if (req.query.width === undefined) {
-    res.send('The width is missing');
-  } else if (req.query.height === undefined) {
-    res.send('The width is missing');
+    res.status(400).send('The filename is missing');
+  } else if (req.query.width === undefined || Number(req.query.width) === 0) {
+    res.status(400).send('The width is missing or less than 0');
+  } else if (req.query.height === undefined || Number(req.query.height) === 0) {
+    res.status(400).send('The width is missing or less than 0');
   } else {
     next();
   }

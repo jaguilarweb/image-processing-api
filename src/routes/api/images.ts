@@ -42,15 +42,11 @@ images.get(
           .resize(imageWidth, imageHeight)
           .toFile(imageResizedPath);
         //To show the image on screen and to close the server connection "send"
-        console.log('La imagen no existe, fue creada');
-        console.log(' URL creada: ' + imageResizedPath);
         res.status(200).sendFile(imageResizedPath);
       } catch (error: unknown) {
-        console.error('An error: ', error);
+        res.send('There are a error. Please try again.');
       }
     } else {
-      console.log('La imagen existe, envío la que está en el directorio');
-      console.groupEnd();
       res.status(200).sendFile(imageResizedPath);
     }
   }
