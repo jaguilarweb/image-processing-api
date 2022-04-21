@@ -36,9 +36,14 @@ images.get(
       `${imageName}_${imageWidth}x${imageHeight}.jpg`
     );
 
-    if (!await imageExist(imageResizedPath)) {
+    if (!(await imageExist(imageResizedPath))) {
       try {
-        await imageResizing(imagePath,imageWidth,imageHeight, imageResizedPath);
+        await imageResizing(
+          imagePath,
+          imageWidth,
+          imageHeight,
+          imageResizedPath
+        );
         //To show the image on screen and to close the server connection "send"
         res.status(200).sendFile(imageResizedPath);
       } catch (error: unknown) {
