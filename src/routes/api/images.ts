@@ -1,9 +1,9 @@
 import express from 'express';
 import path from 'path';
-import sharp from 'sharp';
 import logger from '../../utilities/middlewares/logger';
 import validateParameter from '../../utilities/middlewares/validateParameter';
 import imageExist from '../../utilities/imageExist';
+import imageResizing from '../../utilities/imageResizing';
 
 const images = express.Router();
 const middleware = [logger, validateParameter];
@@ -36,11 +36,9 @@ images.get(
       `${imageName}_${imageWidth}x${imageHeight}.jpg`
     );
 
-    if (!(await imageExist(imageResizedPath))) {
+    if (!await imageExist(imageResizedPath)) {
       try {
-        await sharp(imagePath)
-          .resize(imageWidth, imageHeight)
-          .toFile(imageResizedPath);
+        await imageResizing(imagePath,imageWidth,imageHeight, imageResizedPath);
         //To show the image on screen and to close the server connection "send"
         res.status(200).sendFile(imageResizedPath);
       } catch (error: unknown) {
