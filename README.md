@@ -68,7 +68,10 @@ git clone git@github.com:jaguilarweb/image-processing-api.git
 ### 3.- Running local
 To run local: ```npm run start```
 
-### 4.- Open a browser
+### 4.- Copy paste 'assets' folder
+To try the api, please copy the 'assets' folder and paste it inside the 'build' folder.
+
+### 5.- Open a browser
 
 Open your browser and write a request like:
 ```http://localhost:3000/api/images?filename=fjord&width=200&height=200```
