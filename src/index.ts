@@ -2,7 +2,7 @@ import express from 'express';
 import routes from './routes/index';
 
 const app = express();
-var port = 3000;
+const port = 3000;
 
 // I am used the routes as middleware
 app.use('/api', routes);

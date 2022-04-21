@@ -1,5 +1,4 @@
 import sharp from 'sharp';
-import path from 'path';
 
 const imageResizing = async (
   imagePath: string,

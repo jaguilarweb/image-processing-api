@@ -89,7 +89,7 @@ Open your browser and write a request like:
 #### GET '/api'
 
 - General
-  - This endpoint should return a simple string with **"Welcome, enjoy the api!"**.
+  - This endpoint should return a simple string with **"Welcome, enjoy the api!"**, and status 200.
 
 #### GET '/api/images'
 
