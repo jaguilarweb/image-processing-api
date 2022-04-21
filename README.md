@@ -60,7 +60,6 @@ There are not Frontend in this version.
 
 ```
 git clone git@github.com:jaguilarweb/image-processing-api.git
-
 ```
 
 ### 2.- Install dependencies
@@ -84,19 +83,19 @@ Open your browser and write a request like:
 
 ### Endpoints
 
-#### GET '/'
+#### GET '/api'
 
 - General
-  - This endpoint should return a simple string with **"Welcome, enjoy the api"**.
+  - This endpoint should return a simple string with **"Welcome, enjoy the api!"**.
 
-#### GET '/image'
+#### GET '/api/images'
 
 - General
   - This endpoint should return a resize image.
   - You need to provide 3 parameters:
     * filename (string between the choices below)
-    * width (number grather than 0)
-    * hight (number grather than 0 )
+    * width (number greater than 0)
+    * hight (number greater than 0 )
 
 
 This application allow following choices to filenames:

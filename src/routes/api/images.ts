@@ -42,7 +42,7 @@ images.get(
         //To show the image on screen and to close the server connection "send"
         res.status(200).sendFile(imageResizedPath);
       } catch (error: unknown) {
-        res.send('There are a error. Please try again.');
+        res.send('There is an error. Please try again.');
       }
     } else {
       res.status(200).sendFile(imageResizedPath);
