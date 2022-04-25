@@ -23,12 +23,14 @@ images.get(
       __dirname,
       '..',
       '..',
+      '..',
       'assets',
       'images',
       `${imageName}.jpg`
     );
     const imageResizedPath: string = path.join(
       __dirname,
+      '..',
       '..',
       '..',
       'assets',

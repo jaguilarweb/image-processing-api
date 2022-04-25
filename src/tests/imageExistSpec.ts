@@ -5,6 +5,7 @@ describe('Test ImageExist function response:', () => {
   const pathExistingFile: string = path.join(
     __dirname,
     '..',
+    '..',
     'assets',
     'images',
     'fjord.jpg'
