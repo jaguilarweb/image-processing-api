@@ -5,12 +5,12 @@ const imageResizing = async (
   imageWidth: number,
   imageHeight: number,
   imageResizedPath: string
-)=> {
-    await sharp(imagePath)
-      .resize(imageWidth, imageHeight)
-      .toFile(imageResizedPath);
-    //To show the image on screen and to close the server connection "send"
-    return imageResizing;
+): Promise<unknown> => {
+  await sharp(imagePath)
+    .resize(imageWidth, imageHeight)
+    .toFile(imageResizedPath);
+  //To show the image on screen and to close the server connection "send"
+  return imageResizing;
 };
 
 export default imageResizing;
