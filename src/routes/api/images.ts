@@ -13,7 +13,7 @@ const middleware = [logger, validateParameter];
 images.get(
   '/',
   middleware,
-  async (req: express.Request, res: express.Response) => {
+  async (req: express.Request, res: express.Response):Promise<void> => {
     // To obtain parameters
     const parameter = req.query;
     const imageName: string = String(parameter.filename);
@@ -47,7 +47,7 @@ images.get(
         //To show the image on screen and to close the server connection "send"
         res.status(200).sendFile(imageResizedPath);
       } catch (error: unknown) {
-        res.send('There is an error. Please try again.');
+        res.status(400).send('There are a missing information in your request. Please try again!')
       }
     } else {
       res.status(200).sendFile(imageResizedPath);
